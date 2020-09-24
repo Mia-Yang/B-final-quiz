@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TrainerService {
@@ -18,12 +17,9 @@ public class TrainerService {
         trainerRepository.save(trainer);
     }
 
-    public List<Trainer> findUngroupedTrainer() {
-        List<Trainer> trainers = trainerRepository.findAll();
-        if(trainers.isEmpty()) {
-            return Collections.emptyList();
-        }
-        return trainers.stream().filter(trainer -> !trainer.isGrouped()).collect(Collectors.toList());
+    public List<Trainer> findUngroupedTrainer(boolean grouped) {
+        List<Trainer> trainers = trainerRepository.findByGrouped(grouped);
+        return trainers.isEmpty()?Collections.emptyList():trainers;
     }
 
     public void createTrainer(Trainer trainer) {

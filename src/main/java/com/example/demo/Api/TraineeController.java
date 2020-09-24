@@ -18,8 +18,8 @@ public class TraineeController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Trainee> getUngroupedTrainees() {
-        return traineeService.findUngroupedTrainee();
+    public List<Trainee> getUngroupedTrainees(@RequestParam Boolean grouped) {
+        return traineeService.findUngroupedTrainee(grouped);
     }
 
     @PostMapping

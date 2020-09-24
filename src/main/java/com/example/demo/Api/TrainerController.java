@@ -17,8 +17,8 @@ public class TrainerController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Trainer> getUngroupedTrainees() {
-        return trainerService.findUngroupedTrainer();
+    public List<Trainer> getUngroupedTrainees(@RequestParam boolean grouped) {
+        return trainerService.findUngroupedTrainer(grouped);
     }
 
     @PostMapping
