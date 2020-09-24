@@ -21,10 +21,15 @@ public class GroupController {
         return groupService.getGroups();
     }
 
+    @GetMapping("/auto-grouping")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Group> autoGrouping() {
+        return groupService.autoGrouping();
+    }
+
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void renameGroup(@PathVariable Long id, @RequestParam String name) {
         groupService.renameGroup(id,name);
     }
-
 }
