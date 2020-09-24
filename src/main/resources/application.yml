@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/groupdb
+    url: jdbc:mysql://localhost:3306/groupdb?nullCatalogMeansCurrent=true
     username: root
     password: yang0615
   jpa:

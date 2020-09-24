@@ -13,8 +13,12 @@ public class TrainerService {
 
     public TrainerService(TrainerRepository trainerRepository) {
         this.trainerRepository = trainerRepository;
-        Trainer trainer = Trainer.builder().id(1L).grouped(false).name("桂溪京").build();
-        trainerRepository.save(trainer);
+        Trainer trainer1 = Trainer.builder().grouped(false).name("桂溪京").build();
+        trainerRepository.save(trainer1);
+        Trainer trainer2 = Trainer.builder().grouped(false).name("张钊").build();
+        trainerRepository.save(trainer2);
+        Trainer trainer3 = Trainer.builder().grouped(false).name("杜娟").build();
+        trainerRepository.save(trainer3);
     }
 
     public List<Trainer> findUngroupedTrainer(boolean grouped) {

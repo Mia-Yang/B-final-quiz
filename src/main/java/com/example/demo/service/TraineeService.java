@@ -12,9 +12,26 @@ public class TraineeService {
 
     public TraineeService(TraineeRepository traineeRepository) {
         this.traineeRepository = traineeRepository;
-        Trainee trainee = Trainee.builder().name("杨思雨").email("yang@163.com").github("Mia-Yang")
+        Trainee trainee1 = Trainee.builder().name("杨思雨").email("yang@163.com").github("Mia-Yang")
                 .office("西安").zoomId("1234").grouped(false).build();
-        traineeRepository.save(trainee);
+        traineeRepository.save(trainee1);
+        Trainee trainee2 = Trainee.builder().name("沈乐祺").email("yang@163.com").github("Mia-Yang")
+                .office("西安").zoomId("1234").grouped(false).build();
+        traineeRepository.save(trainee2);
+        Trainee trainee3 = Trainee.builder().name("王江林").email("yang@163.com").github("Mia-Yang")
+                .office("西安").zoomId("1234").grouped(false).build();
+        traineeRepository.save(trainee3);
+        Trainee trainee4 = Trainee.builder().name("王登宇").email("yang@163.com").github("Mia-Yang")
+                .office("西安").zoomId("1234").grouped(false).build();
+        traineeRepository.save(trainee4);
+        Trainee trainee5 = Trainee.builder().name("陈思聪").email("yang@163.com").github("Mia-Yang")
+                .office("西安").zoomId("1234").grouped(false).build();
+        traineeRepository.save(trainee5);
+        Trainee trainee6 = Trainee.builder().name("徐慧慧").email("yang@163.com").github("Mia-Yang")
+                .office("西安").zoomId("1234").grouped(false).build();
+        traineeRepository.save(trainee6);
+
+
     }
 
     public List<Trainee> findUngroupedTrainee(Boolean grouped) {
