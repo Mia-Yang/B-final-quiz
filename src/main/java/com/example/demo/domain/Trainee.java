@@ -21,6 +21,7 @@ public class Trainee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
+    // GTB: - String类型的校验推荐使用@NotBlank
     private String name;
     @NotNull
     private String office;

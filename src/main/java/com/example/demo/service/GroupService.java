@@ -29,6 +29,8 @@ public class GroupService {
     }
 
     public void renameGroup(Long id, String name) {
+        // GTB: - 修改组名时，没有处理小组找不到的异常
+        // GTB: - 修改组名时，没有处理组名重复的异常
         groupRepository.findById(id).get().setName(name);
     }
 
@@ -36,7 +38,10 @@ public class GroupService {
     public List<Group> autoGrouping() {
         List<Trainer> trainers = trainerRepository.findAll();
         List<Trainee> trainees = traineeRepository.findAll();
+
+        // GTB: - magic number
         if (trainers.size() < 2 || trainers.size() < 1 || trainees.size() < trainers.size() / 2) {
+            // GTB: - 应该抛自定义异常
             throw new RuntimeException();
         }
         int groupCount = trainers.size() % 2 == 0 ? trainers.size() % 2 : (trainers.size() - 1) % 2;
@@ -48,6 +53,7 @@ public class GroupService {
 
     public List<Group> emptyGroup(List<Trainer> trainers, int groupCount){
         List<Group> groups = new ArrayList<>();
+        // GTB: - 可以使用Java8 Stream简化代码
         for (int i = 0; i < groupCount; i++) {
             groups.add(Group.builder().id((long) (i + 1)).name((i + 1) + "组").build());
         }

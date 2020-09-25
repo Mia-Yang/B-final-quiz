@@ -1,3 +1,4 @@
+// GTB：- 包名应该小写
 package com.example.demo.Api;
 
 import com.example.demo.domain.Group;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequestMapping("/groups")
 public class GroupController {
     @Autowired
+    // GTB: - 字段应该使用private权限
     GroupService groupService;
 
     @GetMapping
@@ -29,6 +31,7 @@ public class GroupController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    // GTB: - 违反Restful, Patch接口要修改新字段应该通过RequestBody传递，并用对象来接收
     public void renameGroup(@PathVariable Long id, @RequestParam String name) {
         groupService.renameGroup(id,name);
     }

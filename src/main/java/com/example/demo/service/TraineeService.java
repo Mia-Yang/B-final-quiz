@@ -10,6 +10,7 @@ import java.util.List;
 public class TraineeService {
     private TraineeRepository traineeRepository;
 
+    // GTB: - 不应该在应用代码中初始化数据库
     public TraineeService(TraineeRepository traineeRepository) {
         this.traineeRepository = traineeRepository;
         Trainee trainee1 = Trainee.builder().name("杨思雨").email("yang@163.com").github("Mia-Yang")
@@ -44,6 +45,7 @@ public class TraineeService {
     }
 
     public void deleteTrainee(Long id) {
+        // GTB: - 删除学员或讲师，Id不存在时应该抛出异常
         traineeRepository.deleteById(id);
     }
 }

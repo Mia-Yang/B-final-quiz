@@ -23,6 +23,7 @@ public class TrainerService {
 
     public List<Trainer> findUngroupedTrainer(boolean grouped) {
         List<Trainer> trainers = trainerRepository.findByGrouped(grouped);
+        // GTB: - 不必要的三元表达式
         return trainers.isEmpty()?Collections.emptyList():trainers;
     }
 
@@ -31,6 +32,7 @@ public class TrainerService {
     }
 
     public void deleteTrainerById(long id) {
+        // GTB: - 删除学员或讲师，Id不存在时应该抛出异常
         trainerRepository.deleteById(id);
     }
 }
